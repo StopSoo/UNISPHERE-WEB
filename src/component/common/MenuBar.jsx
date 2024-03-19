@@ -9,8 +9,8 @@ function MenuBar({ EnterPrise }) {
 
   return (
     <Menus>
-      <LeftNavigationBar/>
-      <RightNavigationBar EnterPrise={'KCOC'}/>
+      <LeftNavigationBar />
+      <RightNavigationBar />
     </Menus>
   );
 }
@@ -66,33 +66,20 @@ const LeftNavigationButton = styled.button`
   }
 `;
 
-// RNB 
-function RightNavigationBar({ EnterPrise }) {
+function RightNavigationBar() {
   const [isMenuHovered, setIsMenuHovered] = useState(false);  // 버튼 hover 여부
 
   return (
     <Navs>
       <Logout>로그아웃</Logout>
       <Bar>|</Bar>
-      <Plaza onClick={()=>{moveToPage("plaza")}}>소통의 광장</Plaza>
-      <Bar>|</Bar>
-      <EnterprisePage onClick={()=>{moveToPage("kcoc")}}>{EnterPrise} 홈페이지</EnterprisePage>
+      <MyPage>마이 페이지</MyPage>
     </Navs>
   );
 }
 
-// RNB 페이지 이동
-const moveToPage = (link) => {
-  if(link === "plaza") {
-    window.location.href ="https://zep.us/play/87zbJV";
-  }
-  else if(link === "kcoc") {
-    window.location.href ="http://www.ngokcoc.or.kr";
-  }
-};
-
 const Navs = styled.div`
-  width: 31vw;
+  width: 20vw;
   height: 4vh;
   background: white;
   opacity: 50%;
@@ -137,23 +124,7 @@ const Logout = styled.button`
   }
 `;
 
-const Plaza = styled.button`
-  width: 9vw;
-  height: 3vh;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: 'Godo', sans-serif;
-  font-size: 13px;
-  text-decoration: underline;
-  margin: 0.4vw;
-  &:active,
-  &:hover {
-    transition: 0.7s;
-  }
-`;
-
-const EnterprisePage = styled.button`
+const MyPage = styled.button`
   width: 9vw;
   height: 3vh;
   background: none;
